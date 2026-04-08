@@ -1,114 +1,47 @@
-# Requirement ID: FR_hybrid_1
-- Description: [The system shall save workout entries without crashing during the logging process.]
-- Source Persona: [Frequent Fitness Logger]
-- Traceability: [Derived from review group H1]
-- Acceptance Criteria: [If the user enters workout information and submits it, the system must save the workout successfully and remain stable throughout the process.]
-- Notes: [Rewritten from the automated requirement to remove vague wording and improve testability.]
-
-  
 Requirement ID: FR_1
 
-Description: The system shall not crash or freeze during meditation sessions, sleep content playback, or while navigating between screens.
-Source Persona: Jordan Martinez (P_1)
-Traceability: Derived from review group H1 (App Performance and Stability Issues)
-Acceptance Criteria: Given a user starts a meditation or sleep session, When the session is playing, Then the app shall continue playing without crashing or freezing until the user stops it or the session ends.
-Notes: Rewrote R1 to focus on crashes (what reviews actually complain about) instead of launch time. Removed "stable internet connection" requirement since H1 is about crashes not connectivity. Made it testable by focusing on sessions completing without crashes.
-
+Description: The system shall not crash or freeze when users are meditating, sleeping, or interacting with the screens of the application. Source Persona: Jordan Martinez (P_1) Traceability: Derived from review group H1 (App Performance and Stability Issues) Acceptance Criteria: Given a user begins a meditation or sleep session, when the session is playing, the application shall not crash or freeze until the user ends the session. Notes: Rewrote according to review group H1. Removed stable internet connection requirement since that was not mentioned in the review group. Testable via observing if the sessions play without any crashes.
 
 Requirement ID: FR_2
 
-Description: The system shall load meditation and sleep content within 10 seconds on a working internet connection.
-Source Persona: Jordan Martinez (P_1)
-Traceability: Derived from review group H1 (App Performance and Stability Issues)
-Acceptance Criteria: Given a user selects a meditation or sleep session, When the user taps play, Then the content shall begin playing within 10 seconds if connected to wifi or mobile data.
-Notes: New requirement based on H1 reviews about slow loading. Set 10 seconds as reasonable limit (reviews say "takes forever" which is vague). More testable than auto spec's launch time requirement.
-
+Description: The system shall load the meditation or sleep content within 10 seconds of tapping play on a working internet connection. Source Persona: Jordan Martinez (P_1) Traceability: Derived from review group H1 (App Performance and Stability Issues) Acceptance Criteria: Given a user selects a meditation or sleep content session and taps play, the content will begin playing within 10 seconds of tapping play on a wifi or mobile data connection. Notes: New requirement from review group H1 regarding loading. Using 10 seconds as a time frame instead of “takes forever” as mentioned by the users in the survey. Can be tested by measuring the amount of time it takes for the content to begin playing after the user taps play.
 
 Requirement ID: FR_3
 
-Description: The system shall not degrade performance or introduce new crashes after app updates.
-Source Persona: Jordan Martinez (P_1)
-Traceability: Derived from review group H1 (App Performance and Stability Issues)
-Acceptance Criteria: Given the app is updated to a new version, When the user performs the same actions they did before the update, Then the app shall perform at least as well as the previous version with no new crash issues.
-Notes: New requirement lots of H1 reviews complain updates make things worse. Auto spec didn't cover this pain point at all.
-
+Description: The system shall not experience any performance issues or crashes after being updated to a new version of the application. Source Persona: Jordan Martinez (P_1) Traceability: Derived from review group H1 (App Performance and Stability Issues) Acceptance Criteria: Given a user updates the application to a new version, when they perform the same actions as before the update, the application should perform at least as well as it did in the previous version of the application. Notes: New requirement as many reviews from H1 stated that the updates to the application resulted in worse performance. This was not mentioned in the Auto spec document.
 
 Requirement ID: FR_4
 
-Description: The system shall clearly display subscription price, billing cycle, and auto-renewal status before any payment is charged.
-Source Persona: Taylor Kim (P_2)
-Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues)
-Acceptance Criteria: Given a user is viewing subscription options, When the subscription page loads, Then the full price, billing frequency (monthly/yearly), and auto-renewal notice shall be visible without scrolling or clicking to other pages.
-Notes: Improved from R3. Made specific about what needs to be shown (price, cycle, auto-renewal) based on H2 reviews. Removed vague language.
-
+Description: The system shall display the price of the subscription, the billing cycle, and that the subscription will automatically renew before any payment is charged to the user. Source Persona: Taylor Kim (P_2) Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues) Acceptance Criteria: Given a user views the subscription options, when the subscription page is loaded, the price, billing cycle, and auto-renewal of the subscription will be visible without the user having to navigate to any other pages. Notes: Improved suggestion from R3. Based on the reviews in H2 the subscription should indicate the price, billing cycle, and auto-renewal status. Removed vague language as requested by the users.
 
 Requirement ID: FR_5
 
-Description: The system shall allow users to cancel subscriptions through in-app settings without requiring external website or phone call.
-Source Persona: Taylor Kim (P_2)
-Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues)
-Acceptance Criteria: Given a user navigates to app settings, When the user selects subscription management, Then a cancel subscription option shall be present and functional within the app itself.
-Notes: Rewrote R4 to focus on in-app cancellation which is what H2 reviews complain about. Removed the "2 minutes" timeline since reviews don't specify that and just want to be able to cancel.
-
+Description: The system shall allow users to cancel their subscription to the meditation and sleep application through the settings within the application. Source Persona: Taylor Kim (P_2) Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues) Acceptance Criteria: Given a user navigates to the settings for the application, when they navigate to the subscription management settings, there should be an option for the user to click to cancel their subscription within the application. Notes: Rewrote R4 to specifically target the issue mentioned by the users in H2. Removed time frame of 2 minutes to cancel as it was not mentioned in the reviews.
 
 Requirement ID: FR_6
 
-Description: The system shall not charge users after they have cancelled their subscription or trial.
-Source Persona: Taylor Kim (P_2)
-Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues)
-Acceptance Criteria: Given a user cancels their subscription or free trial, When the cancellation is confirmed, Then no charges shall occur after the current billing period ends.
-Notes: New requirement this is the biggest H2 complaint getting charged after cancelling. Auto spec had refund policy but not this basic issue.
-
+Description: The system shall not begin to charge a user after they have cancelled their subscription to the application. Source Persona: Taylor Kim (P_2) Traceability: Derived from review group H2 (Subscription, Billing, and Customer Service Issues) Acceptance Criteria: Given a user cancels their subscription to the application, when the subscription is cancelled, no charges shall occur after the current subscription period. Notes: New requirement to address the main point of the H2 review groups. Users were concerned that they would be charged after cancelling their subscription. This point was not mentioned in the Auto specification.
 
 Requirement ID: FR_7
 
-Description: The system shall provide a functional search feature that returns relevant meditation and sleep content based on user keywords.
-Source Persona: Sam Patel (P_3)
-Traceability: Derived from review group H3 (Navigation, UI/UX, and Content Discovery Issues)
-Acceptance Criteria: Given a user enters a keyword in the search bar (like "sleep" or "anxiety"), When the search executes, Then results matching that keyword shall appear in the results list.
-Notes: Simplified from R7. Removed "within 2 clicks" (not in reviews). Focus on search actually working which H3 reviews mention.
-
+Description: The system shall have a search function that returns relevant meditation or sleep content based upon the keywords that are entered by the user. Source Persona: Sam Patel (P_3) Traceability: Derived from review group H3 (Navigation, UI/UX, and Content Discovery Issues) Acceptance Criteria: Given a user types a specific keyword into the search bar, when they perform the search, the application shall return relevant meditation or sleep content to that search term. Notes: Simplified from R7. Removed references to navigating to the content in less than 2 clicks as this was not mentioned in the reviews. Focus on search function as this was the main issue mentioned by the users.
 
 Requirement ID: FR_8
 
-Description: The system shall organize content in a way that doesn't feel cluttered or overwhelming on the home screen.
-Source Persona: Sam Patel (P_3)
-Traceability: Derived from review group H3 (Navigation, UI/UX, and Content Discovery Issues)
-Acceptance Criteria: Given a user opens the app, When the home screen loads, Then the main content categories shall be clearly separated with visible labels and not more than 3 sections requiring horizontal scrolling.
-Notes: New requirement from H3 reviews complaining about cluttered interface. Made measurable by limiting horizontal scroll sections. This is what people where actually complaining  about.
-
+Description: The system shall organize the content in a way that is easy to read and that does not overwhelm the users with numerous sections on the home screen. Source Persona: Sam Patel (P_3) Traceability: Derived from review group H3 (Navigation, UI/UX, and Content Discovery Issues) Acceptance Criteria: Given a user opens the meditation and sleep application, when the home screen is loaded, the content should be organized into sections with visible labels that are no more than three sections that require the users to scroll horizontally to view the content. Notes: New requirement based upon the feedback from review group H3 regarding the organization of the content. Users commented that the current application is overwhelming with the number of sections. Specifically limiting the number of sections that must scroll horizontally to view the content is a new requirement. This is the main issue stated by the users.
 
 Requirement ID: FR_9
 
-Description: The system shall allow users to play downloaded content without requiring an internet connection.
-Source Persona: Casey Rodriguez (P_4)
-Traceability: Derived from review group H4 (Offline Access and Download Problems)
-Acceptance Criteria: Given a user has downloaded meditation or sleep content while online, When the user turns off wifi and mobile data, Then the downloaded content shall play completely without buffering or connection errors.
-Notes: Rewrote R2 for new persona P_4. Made it clearer that downloads MUST work offline (reviews say they don't). Removed "30 days" requirement just needs to work offline.
-
+Description: The system shall allow for user downloaded meditation and sleep content to be played without the need for an internet connection. Source Persona: Casey Rodriguez (P_4) Traceability: Derived from review group H4 (Offline Access and Download Problems) Acceptance Criteria: Given a user downloads content while connected to the internet, when the user turns off the wifi and mobile data, the downloaded content will play without any internet connection errors. Notes: Rewrote requirement R2 to include the perspective of user P_4. Downloads must be able to occur offline as stated by the users. Removed time frame of 30 days as this was not mentioned by the users in their reviews.
 
 Requirement ID: FR_10
 
-Description: The system shall retain downloaded content after app updates.
-Source Persona: Casey Rodriguez (P_4)
-Traceability: Derived from review group H4 (Offline Access and Download Problems)
-Acceptance Criteria: Given a user has downloaded content before an app update, When the app updates to a new version, Then the previously downloaded content shall still be available in downloads and playable offline.
-Notes: New requirement H4 reviews mention downloads disappearing after updates. This wasn't in auto spec at all but it's a major complaint in reviews.
-
+Description: The system shall retain any content that is downloaded by the user even after the application is updated. Source Persona: Casey Rodriguez (P_4) Traceability: Derived from review group H4 (Offline Access and Download Problems) Acceptance Criteria: Given a user has downloaded content before the application is updated, when the application is updated, the content that was downloaded prior to the update is still retained by the application and can be accessed by the user. Notes: New requirement as mentioned in H4. Users are concerned that when the application is updated, any content that was downloaded is deleted. This point was not mentioned in the Auto specification document.
 
 Requirement ID: FR_11
 
-Description: The system shall provide clear information about what user data is collected and allow users to opt out of data sharing for advertising.
-Source Persona: Morgan Chen (P_5)
-Traceability: Derived from review group H5 (Privacy, Data Collection, and AI Integration Concerns)
-Acceptance Criteria: Given a user navigates to privacy settings, When the settings page loads, Then a list of data types collected shall be shown with toggles to disable sharing for advertising purposes.
-Notes: Combined R8 and R9 into one clearer requirement. Focus on transparency and opt-out which H5 reviews want. Removed vague language.
-
+Description: The system shall display information regarding the data that is collected from the users and allow the user to opt out of sharing their data with third parties for advertising purposes. Source Persona: Morgan Chen (P_5) Traceability: Derived from review group H5 (Privacy, Data Collection, and AI Integration Concerns) Acceptance Criteria: Given that a user navigates to the privacy settings of the application, when the privacy settings page is loaded, the application will display the types of data that is collected from the users and allow the user to opt out of sharing that data for advertising purposes. Notes: Combined requirement R8 and R9 into one requirement. Focus on displaying information on the privacy settings page as mentioned in H5. Removed vague language.
 
 Requirement ID: FR_12
 
-Description: The system shall not use user meditation or personal data to train AI models without explicit opt-in consent.
-Source Persona: Morgan Chen (P_5)
-Traceability: Derived from review group H5 (Privacy, Data Collection, and AI Integration Concerns)
-Acceptance Criteria: Given a user is using the app, When AI features are being developed or trained, Then no user data shall be included in training without the user specifically agreeing to it through a clear consent option.
-Notes: New requirement from H5 reviews mentioning AI concerns. This is a growing issue people talk about. Auto spec didn't cover AI usage at all.
+Description: The system shall not use any data from the users’ meditation or personal data to train artificial intelligence models without the consent of the users. Source Persona: Morgan Chen (P_5) Traceability: Derived from review group H5 (Privacy, Data Collection, and AI Integration Concerns) Acceptance Criteria: Given that a user is using the meditation and sleep application, when the developers are training artificial intelligence models for new features, the system shall not use the data from the users’ meditation or personal data without the user explicitly agreeing to that use of their data. Notes: New requirement based upon H5 review groups regarding artificial intelligence. While this is a growing issue in the meditation and sleep industry, it was not mentioned in the auto specification for the application.
