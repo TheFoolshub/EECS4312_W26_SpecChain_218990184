@@ -1,16 +1,274 @@
-
 {
   "tests": [
     {
-      "test_id": "T_auto_1",
+      "test_id": "T_1",
       "requirement_id": "FR1",
-      "scenario": "Workout Logging Stability",
+      "scenario": "Check if pricing info is shown on subscription page",
       "steps": [
-        "Open the workout logging screen",
-        "Enter workout details",
-        "Submit the workout"
+        "Open app as a free user",
+        "Go to the subscription page",
+        "Look at what info is displayed"
       ],
-      "expected_result": "The workout is saved successfully and the application remains stable."
+      "expected_result": "Price, billing cycle, renewal date and how to cancel should all be visible on the page."
+    },
+    {
+      "test_id": "T_2",
+      "requirement_id": "FR1",
+      "scenario": "Check billing terms shown during trial signup",
+      "steps": [
+        "Open app as new user",
+        "Start signing up for free trial",
+        "Check what terms are shown before confirming"
+      ],
+      "expected_result": "Trial length, what happens after trial ends, and the price after trial should be shown clearly before you confirm."
+    },
+    {
+      "test_id": "T_3",
+      "requirement_id": "FR2",
+      "scenario": "Try cancelling subscription from settings",
+      "steps": [
+        "Log in with a subscribed account",
+        "Go to Settings then Subscription",
+        "Look for cancel option and tap it"
+      ],
+      "expected_result": "There should be a cancel button that works inside the app. It shouldnt send you to a browser or google play."
+    },
+    {
+      "test_id": "T_4",
+      "requirement_id": "FR2",
+      "scenario": "Try cancelling free trial from settings",
+      "steps": [
+        "Log in with account on free trial",
+        "Go to Settings then Subscription",
+        "Try to cancel the trial"
+      ],
+      "expected_result": "Trial gets cancelled in the app and you get a message saying you wont be charged."
+    },
+    {
+      "test_id": "T_5",
+      "requirement_id": "FR3",
+      "scenario": "Cancel trial early and check if you get charged",
+      "steps": [
+        "Sign up for free trial",
+        "Cancel it a few days before it ends",
+        "Wait until trial period is over",
+        "Check bank/payment for any charges"
+      ],
+      "expected_result": "No charge shows up. Account goes back to free version."
+    },
+    {
+      "test_id": "T_6",
+      "requirement_id": "FR3",
+      "scenario": "Cancel trial same day and check charges",
+      "steps": [
+        "Sign up for free trial",
+        "Cancel it right away same day",
+        "Wait for trial end date",
+        "Check if any money was taken"
+      ],
+      "expected_result": "Still no charge even if you cancel day one."
+    },
+    {
+      "test_id": "T_7",
+      "requirement_id": "FR4",
+      "scenario": "Play a full meditation without crashes",
+      "steps": [
+        "Open app",
+        "Pick a 10 minute meditation",
+        "Hit play and let it run all the way through"
+      ],
+      "expected_result": "Meditation plays start to finish, no crash no freeze no random stopping."
+    },
+    {
+      "test_id": "T_manual_8",
+      "requirement_id": "FR4",
+      "scenario": "Play sleepcast with screen locked",
+      "steps": [
+        "Open app and pick a sleepcast",
+        "Hit play then lock the phone",
+        "Let it play in background"
+      ],
+      "expected_result": "Sleepcast keeps playing in background without stopping or crashing."
+    },
+    {
+      "test_id": "T_9",
+      "requirement_id": "FR5",
+      "scenario": "How fast does a session load on wifi",
+      "steps": [
+        "Connect to wifi",
+        "Open app and pick a session",
+        "Tap play and count how long it takes to start"
+      ],
+      "expected_result": "Audio should start playing within about 5 seconds."
+    },
+    {
+      "test_id": "T_10",
+      "requirement_id": "FR5",
+      "scenario": "How fast does a session load on data",
+      "steps": [
+        "Turn off wifi use mobile data",
+        "Open app and pick a session",
+        "Tap play and time it"
+      ],
+      "expected_result": "Should still start within 5 seconds if you have decent signal."
+    },
+    {
+      "test_id": "T_11",
+      "requirement_id": "FR6",
+      "scenario": "Does the app still work after updating",
+      "steps": [
+        "Use the app normally and note how it performs",
+        "Update to newest version",
+        "Try using same features again"
+      ],
+      "expected_result": "App works the same or better. No new crashes or noticeably slower loading."
+    },
+    {
+      "test_id": "T_12",
+      "requirement_id": "FR6",
+      "scenario": "Check if features break after update",
+      "steps": [
+        "Before updating write down what features work",
+        "Update the app",
+        "Go through each feature and test it"
+      ],
+      "expected_result": "Everything that worked before should still work after."
+    },
+    {
+      "test_id": "T_13",
+      "requirement_id": "FR7",
+      "scenario": "Play downloaded meditation in airplane mode",
+      "steps": [
+        "Download a meditation while on wifi",
+        "Turn on airplane mode",
+        "Open app go to downloads",
+        "Try playing the downloaded session"
+      ],
+      "expected_result": "It plays fine. No buffering errors no 'you are offline' messages."
+    },
+    {
+      "test_id": "T_14",
+      "requirement_id": "FR7",
+      "scenario": "Play downloaded sleepcast with no connection",
+      "steps": [
+        "Download a sleepcast",
+        "Turn off both wifi and data",
+        "Open app and play the sleepcast"
+      ],
+      "expected_result": "Sleepcast plays all the way through without trying to connect to internet."
+    },
+    {
+      "test_id": "T_15",
+      "requirement_id": "FR8",
+      "scenario": "Check if downloads survive an update",
+      "steps": [
+        "Download 3 sessions",
+        "Update the app",
+        "Go to downloads section and check"
+      ],
+      "expected_result": "All 3 sessions still there and still playable."
+    },
+    {
+      "test_id": "T_16",
+      "requirement_id": "FR8",
+      "scenario": "Downloaded stuff still works offline after update",
+      "steps": [
+        "Download some sessions",
+        "Update the app",
+        "Go airplane mode",
+        "Try playing one of the old downloads"
+      ],
+      "expected_result": "Downloaded session plays offline even after the update. No need to redownload."
+    },
+    {
+      "test_id": "T_17",
+      "requirement_id": "FR9",
+      "scenario": "Get to sleep content from home screen",
+      "steps": [
+        "Open app (should be on home screen)",
+        "Try to get to sleep content",
+        "Count how many taps it takes"
+      ],
+      "expected_result": "Should take 3 taps max to get to the sleep content list."
+    },
+    {
+      "test_id": "T_18",
+      "requirement_id": "FR9",
+      "scenario": "Get to meditation section from home",
+      "steps": [
+        "Start at home screen",
+        "Navigate to meditation content",
+        "Count taps"
+      ],
+      "expected_result": "3 taps or less to reach meditation listings."
+    },
+    {
+      "test_id": "T_19",
+      "requirement_id": "FR10",
+      "scenario": "Search for a specific session by name",
+      "steps": [
+        "Tap the search bar",
+        "Type in name of a session you know exists",
+        "Look at results"
+      ],
+      "expected_result": "That session shows up near the top of results."
+    },
+    {
+      "test_id": "T_20",
+      "requirement_id": "FR10",
+      "scenario": "Search using a keyword like sleep or stress",
+      "steps": [
+        "Tap search bar",
+        "Type something like 'stress' or 'sleep'",
+        "Check results"
+      ],
+      "expected_result": "Results are actually related to what you searched for."
+    },
+    {
+      "test_id": "T_21",
+      "requirement_id": "FR11",
+      "scenario": "Check if each category has enough content",
+      "steps": [
+        "Go to content library",
+        "Check stress, sleep, focus, mindfulness sections",
+        "Count how many sessions in each"
+      ],
+      "expected_result": "At least 10 sessions in each category."
+    },
+    {
+      "test_id": "T_22",
+      "requirement_id": "FR11",
+      "scenario": "Try playing something from each category",
+      "steps": [
+        "Pick one session from stress category and play it",
+        "Pick one from sleep and play it",
+        "Do same for focus and mindfulness"
+      ],
+      "expected_result": "All 4 sessions play without issues."
+    },
+    {
+      "test_id": "T_23",
+      "requirement_id": "FR12",
+      "scenario": "Check if completed sessions show up in history",
+      "steps": [
+        "Complete a couple meditation sessions",
+        "Go to profile or progress section",
+        "Look for session history"
+      ],
+      "expected_result": "Completed sessions show up with names and dates."
+    },
+    {
+      "test_id": "T_24",
+      "requirement_id": "FR12",
+      "scenario": "Check if streak counter works",
+      "steps": [
+        "Do at least one session per day for 3 days",
+        "Go to progress section",
+        "Look at streak counter"
+      ],
+      "expected_result": "Streak shows 3 days. Activity for each day is visible."
     }
   ]
 }
+
+
