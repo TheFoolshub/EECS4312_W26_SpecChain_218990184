@@ -1,16 +1,299 @@
 {
   "tests": [
     {
-      "test_id": "T_hybrid_1",
-      "requirement_id": "FR_hybrid_1",
-      "scenario": "Save a workout entry without crashing",
+      "test_id": "T_1",
+      "requirement_id": "FR_1",
+      "scenario": "Play a meditation session without app crashing",
       "steps": [
-        "Open the workout logging feature",
-        "Enter workout information",
-        "Submit the workout"
+        "Open Headspace app",
+        "Choose a meditation to play",
+        "Hit play and let play run for 5 minutes",
+        "See if the app crashes"
       ],
-      "expected_result": "The workout is saved successfully and the application does not crash.",
-      "notes": "Revised the expected result to match the updated hybrid requirement."
+      "expected_result": "App allows for meditation to play without crashing or freezing.",
+      "notes": "Rewrote from T2. Changed from 30 minutes to 5 minutes.  More realistic time to test without crashing."
+    },
+    {
+      "test_id": "T_2",
+      "requirement_id": "FR_1",
+      "scenario": "Navigate between screens without crashes",
+      "steps": [
+        "Open app",
+        "Navigate to meditation",
+        "Navigate to sleep",
+        "Navigate back to home",
+        "Repeat 3 times"
+      ],
+      "expected_result": "App does not crash while navigating between screens.",
+      "notes": "New test created for requirement FR_1.  Auto tests did not cover screen navigation within the app."
+    },
+    {
+      "test_id": "T_3",
+      "requirement_id": "FR_2",
+      "scenario": "Content should load within 10 seconds on wifi",
+      "steps": [
+        "Connect to wifi",
+        "Open Headspace",
+        "Choose a meditation",
+        "Hit play and time how long it takes until it starts"
+      ],
+      "expected_result": "Meditation will start playing within 10 seconds of opening the app.",
+      "notes": "New test for new requirement.  Using the 10 second limit from FR_2."
+    },
+    {
+      "test_id": "T_4",
+      "requirement_id": "FR_2",
+      "scenario": "Content should load within 10 seconds on mobile data",
+      "steps": [
+        "Turn off wifi and use mobile data",
+        "Open Headspace",
+        "Choose sleep meditation",
+        "Hit play and time the start of the meditation"
+      ],
+      "expected_result": "Content will load within 10 seconds with mobile data connected.",
+      "notes": "Second test for FR_2 to ensure content loads within 10 seconds on mobile data."
+    },
+    {
+      "test_id": "T_5",
+      "requirement_id": "FR_3",
+      "scenario": "App performance after update should not get worse",
+      "steps": [
+        "Note performance of the app before updating",
+        "Update the app to the latest version",
+        "Test performance of app again"
+      ],
+      "expected_result": "Performance should be just as good or better than before the update was performed.",
+      "notes": "New test for requirement FR_3.  Based on H1 review complaints that the update made the app worse."
+    },
+    {
+      "test_id": "T_6",
+      "requirement_id": "FR_3",
+      "scenario": "After update, app should not crash",
+      "steps": [
+        "Update the app",
+        "Use the app for 15 minutes",
+        "Attempt to open different types of content in the app"
+      ],
+      "expected_result": "App should not crash, same as before the update.",
+      "notes": "Second test for requirement FR_3 to ensure that there are no crashes after the app is updated."
+    },
+    {
+      "test_id": "T_7",
+      "requirement_id": "FR_4",
+      "scenario": "Price and billing visible without clicking",
+      "steps": [
+        "Go to subscription page",
+        "Do not scroll or click on anything",
+        "Check if subscription price and billing information is visible"
+      ],
+      "expected_result": "All subscription information (price, billing cycle, auto-renewal) is visible on the subscription screen.",
+      "notes": "Improved from T5.  Specifically checking what information should be visible on subscription page."
+    },
+    {
+      "test_id": "T_8",
+      "requirement_id": "FR_4",
+      "scenario": "No hidden fees in subscription page",
+      "steps": [
+        "Navigate to subscription options",
+        "Check if price is visible",
+        "See if there are additional fees mentioned"
+      ],
+      "expected_result": "No additional fees. Price is visible and accurate.",
+      "notes": "New test for requirement FR_4.  Checking for hidden fees which H1 reviews complain about."
+    },
+    {
+      "test_id": "T_9",
+      "requirement_id": "FR_5",
+      "scenario": "Can cancel subscription in app",
+      "steps": [
+        "Navigate to app settings",
+        "Navigate to subscription",
+        "Look to see if there is a button to cancel the subscription"
+      ],
+      "expected_result": "Button to cancel the subscription is visible in the app.",
+      "notes": "Rewrote from T7.  Changed to only checking if cancel is within the app as that is what H2 reviews requested.  Removed time limit."
+    },
+    {
+      "test_id": "T_10",
+      "requirement_id": "FR_hybrid_5",
+      "scenario": "Subscription gets cancelled when cancelling",
+      "steps": [
+        "Navigate to subscription settings",
+        "Click on subscription to cancel",
+        "Confirm and check if it says subscription cancelled"
+      ],
+      "expected_result": "Subscription gets cancelled.  App shows subscription is cancelled.",
+      "notes": "Test that fully cancels the subscription to ensure it works.  Previously only tested if button was visible."
+    },
+    {
+      "test_id": "T_11",
+      "requirement_id": "FR_6",
+      "scenario": "Can cancel trial and not get charged",
+      "steps": [
+        "Complete a trial of the subscription",
+        "Cancel the subscription",
+        "Wait for trial period to end",
+        "Check if subscription is charged"
+      ],
+      "expected_result": "Free trial will not get charged after being cancelled.",
+      "notes": "NEW test for requirement FR_6.  H2 reviews complain about being charged for the subscription after cancelling their trial."
+    },
+    {
+      "test_id": "T_12",
+      "requirement_id": "FR_6",
+      "scenario": "Can cancel paid subscription and not get charged",
+      "steps": [
+        "Have an active paid subscription",
+        "Cancel the subscription",
+        "Wait for the next billing date",
+        "Check if subscription was charged"
+      ],
+      "expected_result": "Paid subscription will not get charged after being cancelled.",
+      "notes": "Second test for requirement FR_6 to ensure paid subscription does not get charged."
+    },
+    {
+      "test_id": "T_13",
+      "requirement_id": "FR_7",
+      "scenario": "Search for content in app",
+      "steps": [
+        "Tap search bar in app",
+        "Type in a keyword and look for results"
+      ],
+      "expected_result": "Search bar returns relevant content.",
+      "notes": "Simplified from T13.  Removed requirement to search 2 clicks in.  Just checking that search works."
+    },
+    {
+      "test_id": "T_14",
+      "requirement_id": "FR_7",
+      "scenario": "Search returns correct type of content",
+      "steps": [
+        "Search for a specific content type (ex: anxiety)",
+        "Check results for content of that type"
+      ],
+      "expected_result": "Search returns content that matches the keyword searched for.",
+      "notes": "Ensuring search function works as H3 review complain about it."
+    },
+    {
+      "test_id": "T_15",
+      "requirement_id": "FR_8",
+      "scenario": "Home screen should not be too cluttered",
+      "steps": [
+        "Open the app to the home screen",
+        "Count the number of horizontal scroll sections",
+        "Check that each category has a clear label"
+      ],
+      "expected_result": "No more than 3 horizontal scroll sections.  Each scroll has a clear label.",
+      "notes": "NEW test for requirement FR_8.  H3 reviews complain about the cluttered screens in the app.  Limit of 3 sections stated in requirement."
+    },
+    {
+      "test_id": "T_16",
+      "requirement_id": "FR_8",
+      "scenario": "Main options visible on home screen",
+      "steps": [
+        "Open the app",
+        "Navigate to the home screen"
+      ],
+      "expected_result": "All main options for the app are visible on the home screen.",
+      "notes": "Test to ensure home screen is not too overwhelming like H3 reviews say it is."
+    },
+    {
+      "test_id": "T_17",
+      "requirement_id": "FR_9",
+      "scenario": "Played downloaded content while in airplane mode",
+      "steps": [
+        "Download a meditation on wifi",
+        "Turn on airplane mode",
+        "Navigate to downloaded content",
+        "Play downloaded meditation"
+      ],
+      "expected_result": "Downloaded meditation will play without issues while in airplane mode.  Does not need to connect to wifi.",
+      "notes": "Rewrote from T4.  Changed to using airplane mode instead of waiting 30 days for downloaded content to work."
+    },
+    {
+      "test_id": "T_18",
+      "requirement_id": "FR_9",
+      "scenario": "Sleep content can be played without wifi",
+      "steps": [
+        "Download sleep content",
+        "Turn off wifi and mobile data",
+        "Play downloaded sleep content"
+      ],
+      "expected_result": "Downloaded sleep content will play without needing wifi connection.",
+      "notes": "Testing to ensure both meditation and sleep content can be played offline."
+    },
+    {
+      "test_id": "T_19",
+      "requirement_id": "FR_10",
+      "scenario": "Downloads remain after app update",
+      "steps": [
+        "Download 2-3 items from app",
+        "Update the app to the latest version",
+        "Navigate to the downloaded content",
+        "Attempt to play one of the downloaded items"
+      ],
+      "expected_result": "All downloaded content still visible and playable offline after app update.",
+      "notes": "NEW test for requirement FR_10.  H4 reviews complain about downloaded content disappearing after app update."
+    },
+    {
+      "test_id": "T_20",
+      "requirement_id": "FR_10",
+      "scenario": "Old downloads still work after app update",
+      "steps": [
+        "Download some content",
+        "Update the app",
+        "Go offline (airplane mode)",
+        "Try to play downloaded content"
+      ],
+      "expected_result": "Old downloaded content will still work when going offline after app is updated.",
+      "notes": "Testing to ensure downloaded content still works when going offline after app is updated."
+    },
+    {
+      "test_id": "T_21",
+      "requirement_id": "FR_11",
+      "scenario": "Can see what data is collected by app",
+      "steps": [
+        "Navigate to app settings",
+        "Find the privacy or data settings",
+        "Check what data is collected by the app"
+      ],
+      "expected_result": "App will show what data is collected by the app and visible in settings.",
+      "notes": "Improved from T16.  Test to realistically check if data collected is visible."
+    },
+    {
+      "test_id": "T_22",
+      "requirement_id": "FR_hybrid_11",
+      "scenario": "Can opt out of app sharing data with ads",
+      "steps": [
+        "Navigate to app settings",
+        "Find data sharing or advertising settings",
+        "Check if toggle exists to stop sharing data"
+      ],
+      "expected_result": "Toggle to opt out of sharing data with advertisements will be visible.",
+      "notes": "Based on the data sharing opt out requirement (FR_11) that H5 reviews request."
+    },
+    {
+      "test_id": "T_23",
+      "requirement_id": "FR_12",
+      "scenario": "Check if app consents to using AI data",
+      "steps": [
+        "Navigate through app setup process",
+        "Look for consent to use AI data",
+        "Check privacy policy"
+      ],
+      "expected_result": "If app utilizes AI data, it will ask for consent to use that data.",
+      "notes": "NEW test for requirement FR_12.  H5 reviews mention concern for AI data collection."
+    },
+    {
+      "test_id": "T_24",
+      "requirement_id": "FR_12",
+      "scenario": "App does not use AI data without consent",
+      "steps": [
+        "Use app normally",
+        "Check if app uses AI features",
+        "See if it asked for consent to use data"
+      ],
+      "expected_result": "App will not use AI data without the user agreeing to it.",
+      "notes": "Testing to ensure app does not use AI data without consent like H5 reviews mention."
     }
   ]
 }
