@@ -1,6 +1,26 @@
 ## 01_collect_or_import.py - scrapes headspace reviews from google play
 ## need to run: pip install google-play-scraper
 
+"""
+01_collect_or_import.py - Collect Raw Reviews
+
+This script collects user reviews for the Headspace app from the
+Google Play Store.
+
+What it does:
+- Uses google-play-scraper to fetch up to 5000 reviews
+- Collects reviews in batches using continuation tokens
+- Extracts relevant fields (content, score, user, dates, etc.)
+- Saves output to: data/reviews_raw.jsonl (JSONL format)
+
+How to run:
+- Part of full pipeline: python src/run_all.py
+- Or standalone:        python src/01_collect_or_import.py
+
+Requirements:
+- google-play-scraper library (pip install google-play-scraper)
+- Internet connection
+"""
 import json, os
 from google_play_scraper import reviews, Sort
 
