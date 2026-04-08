@@ -11,7 +11,7 @@ It performs the following steps automatically:
 
 1. Data Collection (if needed)
    - Runs: 01_collect_or_import.py
-   - Only runs if data/reviews_raw.jsonl is missing
+
 
 2. Data Cleaning
    - Runs: 02_clean.py
@@ -31,14 +31,8 @@ From the root of the repository:
     python src/run_all.py
 
 ============================================================
-NOTES
-============================================================
-- No user interaction is required (fully automated)
-- If raw data already exists, collection step is skipped
-- If any critical step fails, execution will stop
-- Designed for reproducibility and TA evaluation
 
-============================================================
+
 OUTPUT FILES
 ============================================================
 data/
@@ -68,17 +62,22 @@ import sys
 import os
 import subprocess
 
-# Base directory of this script (src/)
+# Base directory (src/)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# Project root (one level above src/)
+PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
 
-def get_path(filename):
-    """Return absolute path to a script inside src/"""
+
+def get_src_path(filename):
     return os.path.join(BASE_DIR, filename)
 
 
+def get_data_path(filename):
+    return os.path.join(PROJECT_ROOT, "data", filename)
+
+
 def run_script(script_path, description):
-    """Run a script and stream output directly"""
     print("\n" + "=" * 70)
     print(f"RUNNING: {description}")
     print(f"Script: {script_path}")
@@ -88,18 +87,13 @@ def run_script(script_path, description):
         print(f"✗ ERROR: Script not found: {script_path}")
         return False
 
-    try:
-        result = subprocess.run([sys.executable, script_path])
+    result = subprocess.run([sys.executable, script_path])
 
-        if result.returncode == 0:
-            print(f"✓ {description} completed successfully")
-            return True
-        else:
-            print(f"✗ {description} failed (exit code {result.returncode})")
-            return False
-
-    except Exception as e:
-        print(f"✗ ERROR running {description}: {e}")
+    if result.returncode == 0:
+        print(f"✓ {description} completed successfully")
+        return True
+    else:
+        print(f"✗ {description} failed (exit code {result.returncode})")
         return False
 
 
@@ -110,31 +104,28 @@ def main():
 
     results = {}
 
-   
-    # STEP 1: DATA COLLECTION (only if needed)
-   
+    
+    # STEP 1: DATA COLLECTION (ALWAYS RUN)
+    
 
-    raw_data_path = os.path.join(BASE_DIR, "../data/reviews_raw.jsonl")
-    collect_script = get_path("01_collect_or_import.py")
+    collect_script = get_src_path("01_collect_or_import.py")
 
-    if not os.path.exists(raw_data_path):
-        print("\nRaw dataset not found → running data collection...")
-        results['collect'] = run_script(
-            collect_script,
-            "Task 1: Collect/Import Reviews"
-        )
+    print("\nRunning data collection (always refreshing raw dataset)...")
 
-        if not results['collect']:
-            print("\n✗ FATAL: Data collection failed")
-            sys.exit(1)
-    else:
-        print("\n✓ Raw dataset already exists → skipping data collection")
-        results['collect'] = None
+    results['collect'] = run_script(
+        collect_script,
+        "Task 1: Collect/Import Reviews"
+    )
 
+    if not results['collect']:
+        print("\n✗ FATAL: Data collection failed")
+        sys.exit(1)
+
+    
     # STEP 2: CLEAN DATA
-   
+    
 
-    clean_script = get_path("02_clean.py")
+    clean_script = get_src_path("02_clean.py")
 
     results['clean'] = run_script(
         clean_script,
@@ -145,13 +136,13 @@ def main():
         print("\n✗ FATAL: Cleaning failed")
         sys.exit(1)
 
-    clean_data_path = os.path.join(BASE_DIR, "../data/reviews_clean.jsonl")
+    clean_data_path = get_data_path("reviews_clean.jsonl")
 
     if not os.path.exists(clean_data_path):
         print("\n✗ FATAL: Cleaned dataset not found")
         sys.exit(1)
 
-  
+   
     # STEP 3: AUTOMATED PIPELINE
    
 
@@ -163,17 +154,16 @@ def main():
     ]
 
     for script_name, description, key in steps:
-        script_path = get_path(script_name)
+        script_path = get_src_path(script_name)
 
         success = run_script(script_path, description)
         results[key] = success
 
-        # Stop if critical step fails
         if not success and key in ["personas", "spec", "tests"]:
             print(f"\n✗ FATAL: {description} failed → stopping pipeline")
             sys.exit(1)
 
-   
+    
     # SUMMARY
    
 
@@ -192,13 +182,6 @@ def main():
         print(f"{key.capitalize():<10}: {status}")
 
     print("\n✓ Pipeline completed successfully!")
-
-    print("\nGenerated files include:")
-    print("  data/review_groups_auto.json")
-    print("  personas/personas_auto.json")
-    print("  spec/spec_auto.md")
-    print("  tests/tests_auto.json")
-    print("  metrics/metrics_auto.json")
 
 
 if __name__ == "__main__":
