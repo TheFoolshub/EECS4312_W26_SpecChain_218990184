@@ -1,15 +1,227 @@
 {
   "tests": [
     {
-      "test_id": "T_auto_1",
-      "requirement_id": "FR_auto_1",
-      "scenario": "Logging a workout without crashing",
+      "test_id": "T1",
+      "requirement_id": "R1",
+      "scenario": "Verify that the app launches within 3 seconds",
       "steps": [
-        "Open the workout logging screen",
-        "Enter workout details",
-        "Submit the workout"
+        "Launch the Headspace app",
+        "Measure the time taken to display the home screen",
+        "Verify the home screen is displayed"
       ],
-      "expected_result": "The workout is saved successfully and the application remains stable."
+      "expected_result": "The system should display the home screen within 3 seconds"
+    },
+    {
+      "test_id": "T2",
+      "requirement_id": "R1",
+      "scenario": "Verify that the app remains stable for 30 minutes",
+      "steps": [
+        "Launch the Headspace app",
+        "Use the app continuously for 30 minutes",
+        "Verify the app does not crash or freeze"
+      ],
+      "expected_result": "The system should not crash or freeze for at least 30 minutes"
+    },
+    {
+      "test_id": "T3",
+      "requirement_id": "R2",
+      "scenario": "Verify that downloaded content is accessible offline for 30 days",
+      "steps": [
+        "Download content on a device with a stable internet connection",
+        "Disable internet connection on the device",
+        "Access the downloaded content after 30 days",
+        "Verify the content plays without error"
+      ],
+      "expected_result": "The system should allow access to downloaded content offline for at least 30 days"
+    },
+    {
+      "test_id": "T4",
+      "requirement_id": "R2",
+      "scenario": "Verify that downloaded content plays without error on a device without internet",
+      "steps": [
+        "Download content on a device with a stable internet connection",
+        "Disable internet connection on the device",
+        "Access the downloaded content",
+        "Verify the content plays without error"
+      ],
+      "expected_result": "The system should play downloaded content without error on a device without internet"
+    },
+    {
+      "test_id": "T5",
+      "requirement_id": "R3",
+      "scenario": "Verify that the app displays a clear and accurate list of subscription options",
+      "steps": [
+        "Navigate to the settings menu",
+        "View the subscription options",
+        "Verify the list includes at least 3 options with clear pricing and features"
+      ],
+      "expected_result": "The system should display a clear and accurate list of subscription options"
+    },
+    {
+      "test_id": "T6",
+      "requirement_id": "R3",
+      "scenario": "Verify that the updated plan is reflected in the settings menu within 1 minute",
+      "steps": [
+        "Navigate to the settings menu",
+        "Change the subscription plan",
+        "Verify the updated plan is reflected in the settings menu within 1 minute"
+      ],
+      "expected_result": "The system should reflect the updated plan in the settings menu within 1 minute"
+    },
+    {
+      "test_id": "T7",
+      "requirement_id": "R4",
+      "scenario": "Verify that the subscription is canceled within 2 minutes",
+      "steps": [
+        "Initiate the cancellation process",
+        "Confirm cancellation",
+        "Verify the subscription is canceled within 2 minutes"
+      ],
+      "expected_result": "The system should cancel the subscription within 2 minutes"
+    },
+    {
+      "test_id": "T8",
+      "requirement_id": "R4",
+      "scenario": "Verify that the user receives a confirmation email within 5 minutes",
+      "steps": [
+        "Initiate the cancellation process",
+        "Confirm cancellation",
+        "Verify a confirmation email is received within 5 minutes"
+      ],
+      "expected_result": "The system should send a confirmation email within 5 minutes"
+    },
+    {
+      "test_id": "T9",
+      "requirement_id": "R5",
+      "scenario": "Verify that the app displays a clear and organized list of completed sessions",
+      "steps": [
+        "Complete at least 5 sessions",
+        "View the progress screen",
+        "Verify the list of completed sessions is clear and organized"
+      ],
+      "expected_result": "The system should display a clear and organized list of completed sessions"
+    },
+    {
+      "test_id": "T10",
+      "requirement_id": "R5",
+      "scenario": "Verify that the app accurately reflects session details",
+      "steps": [
+        "Complete a session",
+        "View the history screen",
+        "Verify the session details, including date and duration, are accurate"
+      ],
+      "expected_result": "The system should accurately reflect session details"
+    },
+    {
+      "test_id": "T11",
+      "requirement_id": "R6",
+      "scenario": "Verify that haptic feedback is provided during sessions",
+      "steps": [
+        "Navigate to the settings menu",
+        "Enable haptic feedback",
+        "Start a session",
+        "Verify haptic feedback is provided during the session"
+      ],
+      "expected_result": "The system should provide haptic feedback during sessions"
+    },
+    {
+      "test_id": "T12",
+      "requirement_id": "R6",
+      "scenario": "Verify that continuous playback works as expected",
+      "steps": [
+        "Navigate to the settings menu",
+        "Enable continuous playback",
+        "Start a session",
+        "Verify the next session plays automatically without interruption"
+      ],
+      "expected_result": "The system should play the next session automatically without interruption"
+    },
+    {
+      "test_id": "T13",
+      "requirement_id": "R7",
+      "scenario": "Verify that relevant content is displayed within 2 clicks",
+      "steps": [
+        "Navigate to the app's main menu",
+        "Search for a specific type of meditation",
+        "Verify relevant results are displayed within 2 clicks"
+      ],
+      "expected_result": "The system should display relevant results within 2 clicks"
+    },
+    {
+      "test_id": "T14",
+      "requirement_id": "R7",
+      "scenario": "Verify that session details are displayed within 1 click",
+      "steps": [
+        "Navigate to the app's main menu",
+        "Use the search function to find a specific session",
+        "Verify session details are displayed within 1 click"
+      ],
+      "expected_result": "The system should display session details within 1 click"
+    },
+    {
+      "test_id": "T15",
+      "requirement_id": "R8",
+      "scenario": "Verify that personally identifiable information is not collected without consent",
+      "steps": [
+        "Initiate the app for the first time",
+        "Verify the system prompts for data collection consent",
+        "Verify personally identifiable information is not collected without explicit consent"
+      ],
+      "expected_result": "The system should not collect personally identifiable information without explicit consent"
+    },
+    {
+      "test_id": "T16",
+      "requirement_id": "R8",
+      "scenario": "Verify that collected data is displayed accurately",
+      "steps": [
+        "Provide consent for data collection",
+        "View account settings",
+        "Verify the system displays a clear and accurate list of collected data"
+      ],
+      "expected_result": "The system should display a clear and accurate list of collected data"
+    },
+    {
+      "test_id": "T17",
+      "requirement_id": "R9",
+      "scenario": "Verify that data encryption methods are displayed accurately",
+      "steps": [
+        "Provide consent for data collection",
+        "View account settings",
+        "Verify the system displays a clear and accurate list of data encryption methods used"
+      ],
+      "expected_result": "The system should display a clear and accurate list of data encryption methods used"
+    },
+    {
+      "test_id": "T18",
+      "requirement_id": "R9",
+      "scenario": "Verify that ads are not targeted based on user data",
+      "steps": [
+        "Use the app and encounter an ad",
+        "Verify the ad is not targeted based on user data"
+      ],
+      "expected_result": "The system should not display targeted ads based on user data"
+    },
+    {
+      "test_id": "T19",
+      "requirement_id": "R10",
+      "scenario": "Verify that the refund policy is displayed clearly",
+      "steps": [
+        "Make a purchase",
+        "Request a refund",
+        "Verify the system provides a clear and accurate refund policy within 1 click"
+      ],
+      "expected_result": "The system should provide a clear and accurate refund policy within 1 click"
+    },
+    {
+      "test_id": "T20",
+      "requirement_id": "R10",
+      "scenario": "Verify that refunds are processed within 5 business days",
+      "steps": [
+        "Make a purchase",
+        "Request a refund",
+        "Verify the refund is processed within 5 business days"
+      ],
+      "expected_result": "The system should process refunds within 5 business days"
     }
   ]
 }
