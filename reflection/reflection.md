@@ -1,5 +1,22 @@
-# Application: [Calm] 
-- Most important difference between pipelines: [The automated pipeline produced broader personas, while the manual pipeline produced more focused personas grounded in specific review groups.]
-- Most useful pipeline: [The hybrid pipeline produced the most balanced outputs because it preserved automation speed while improving clarity and traceability.] 
-- Most surprising finding: [Several automated requirements were grammatically correct but too vague to support reliable test generation.]
-- Observed weakness in the automated pipeline: [Some personas included unsupported assumptions that were not clearly grounded in the reviews.]
+# Application: [Headspace] 
+
+This project compares three approaches to transforming Headspace app review comments into software requirements: manual, automated, and hybrid. Here's what was learned about each approach.
+
+
+The biggest difference between the automated and manual/hybrid approaches was the amount of data that each approach used to create those requirements. The automated requirements only used 21 reviews of the 2,326 available (less than 1%). The manual and hybrid approaches used 50 reviews each (2.15%). This difference in data usage led to the automated system missing entire categories within the reviews, such as users who commented on the fact that the app’s offline download functionality did not work.
+The quality of the personas described for the app also differed between approaches. The manual approach used personas whose attributes reflected the reviews of users (with each attribute having a corresponding review ID). The automated personas had many attributes, but no reviews stated those features of the desired users, such as them being college students or having a daily commute to work. The hybrid approach used the same structure as the automated personas, but with all the “made up” attributes deleted.
+Requirements also had different levels of success between approaches. The automated requirements featured specific numbers, such as the number of clicks it would take for a user to successfully cancel their subscription to the app. Users did not request these specific numbers, however. Requirements for the manual and hybrid approaches did not use specific numbers, but used less ambiguity than automated requirements; manual requirements had 16.67% ambiguity while hybrid requirements had 8.33% ambiguity.
+
+
+
+The most useful approach was the hybrid approach. Beyond the initial time investment of two hours to create the hybrid approach compared to four hours for the manual approach, the hybrid approach also used 50 reviews (same as manual) compared to 21 for the automated system. Furthermore, the hybrid approach found the issue related to the app’s offline functionality that the automated system had missed.
+The hybrid approach also allowed for the resolution of unrealistic test cases. For instance, the automated system suggested waiting 30 days after subscribing to the app to test whether the downloaded content would still play after that period. Instead, the test case was changed to turning on airplane mode and attempting to play the content that had been downloaded in 30 seconds instead of 30 days.
+
+
+One of the most surprising findings from this project is that AI can produce requirements for software that look good, but are actually useless to the organization. For example, while automated requirements were well formulated and included all of the appropriate components of a good requirement document, they did not reflect the desires of the users of the Headspace app. Requirements like “allow users to cancel their subscription in 2 clicks” may sound good, but the reviews did not reflect that this was a desired feature by the app’s users.
+Beyond the false precision in requirements, several other aspects of the automated system went wrong. For example, it did not use enough data to produce the reviews, it invented attributes of the users in the personas that were created, it produced tests cases that could not be met by the app and used limited data to create those recommendations, and it did not use enough of the available reviews (only 21 compared to the 50 utilized by the other approaches). None of these issues were unfixable by the AI system, but they do demonstrate why the AI system cannot be directly used and submitted for review.
+
+
+
+Automation of requirements for software products is great for getting started on the requirements process, but is terrible for completing it. For example, the automated system handled the boring aspects of requirements perfectly, but failed to produce requirements that reflected the actual users of the product. Furthermore, while it took four  hours for a developer to complete the manual approach, only two hours were required to create the recommendations and delete any features that were invented by the AI system. Thus, this process resulted in 50% time savings compared to the manual process.
+For any real software engineering project, it would be best for developers to use this type of hybrid system, wherein the AI handles the initial drafting of the requirements, but then is replaced with human-created and reviewed requirements. AI systems are great for creating drafts, but never for replacing the developers themselves.
