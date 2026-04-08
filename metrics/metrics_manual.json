@@ -7,7 +7,7 @@
   "tests_count": 24,
   "traceability_links": 29,
   "review_coverage": 0.0211,
-  "traceability_ratio": 1,
-  "testability_rate": 1,
-  "ambiguity_ratio": 0.3333
+  "traceability_ratio": 1.0,
+  "testability_rate": 1.0,
+  "ambiguity_ratio": 0.1667
 }
