@@ -1,31 +1,158 @@
 {
   "personas": [
     {
-      "id": "P_hybrid_1",
-      "name": "Frequent Fitness Logger",
-      "description": "A user who depends on the app for regular workout tracking and expects logging to work reliably during or immediately after exercise.",
+      "id": "P_1",
+      "name": "Jordan Martinez",
+      "description": "Someone who uses Headspace regularly for meditation but keeps running into crashes and bugs that interrupt sessions. Gets frustrated when the app freezes or stops working, especially during meditation.",
       "derived_from_group": "H1",
       "goals": [
-        "Log workouts quickly",
-        "Track activities without interruption"
+        "Complete meditation sessions without crashes",
+        "Use app that loads quickly and doesn't freeze"
       ],
       "pain_points": [
-        "The app crashes while saving workouts",
-        "Previously entered activity data may disappear"
+        "App crashes during meditation or when opening",
+        "Sessions stop playing randomly",
+        "Loading takes forever or gets stuck",
+        "Updates make performance worse instead of better"
       ],
       "context": [
-        "Using the app during exercise sessions",
-        "Using the app outdoors or while moving"
+        "Uses app before bed or when stressed",
+        "Expects it to work smoothly since they pay for subscription"
       ],
       "constraints": [
-        "Workout logging must complete without crashing",
-        "Saved workout data must persist"
+        "App must not crash during active sessions",
+        "Performance shouldn't get worse after updates"
       ],
       "evidence_reviews": [
-        "rev_12",
-        "rev_41"
+        "r0006",
+        "r0007",
+        "r0012"
       ],
-      "notes": "Refined the persona description and removed an unsupported assumption about synchronization."
+      "notes": "Fixed from 'Meditation Enthusiast' which isn't a real name. Focused on crashes and bugs from reviews. Removed unsupported stuff about offline downloads (that's H4)."
+    },
+    {
+      "id": "P_2",
+      "name": "Taylor Kim",
+      "description": "Got charged for subscription when they thought they cancelled, or got billed more than expected. Has trouble with customer service when trying to get refunds or cancel properly.",
+      "derived_from_group": "H2",
+      "goals": [
+        "Cancel subscription without getting charged",
+        "Understand what they're paying for before being billed",
+        "Get refund if charged by mistake"
+      ],
+      "pain_points": [
+        "Charged after trying to cancel or during free trial",
+        "Can't find how to cancel in the app",
+        "Customer service doesn't help with refunds",
+        "Subscription renewals happen without warning"
+      ],
+      "context": [
+        "Trying to manage subscriptions and avoid unexpected charges",
+        "Frustrated with billing practices"
+      ],
+      "constraints": [
+        "Should be able to cancel clearly within app",
+        "No surprise charges after cancellation"
+      ],
+      "evidence_reviews": [
+        "r0000",
+        "r0014",
+        "r0015"
+      ],
+      "notes": "Changed from 'Alex Chen college student' , removed college part since reviews don't say that. Kept focus on billing and cancellation issues which are all over these reviews."
+    },
+    {
+      "id": "P_3",
+      "name": "Sam Patel",
+      "description": "Finds the app interface confusing and cluttered. Has trouble locating specific meditations or sleep content they want. The UI feels busy and makes navigation harder than it should be.",
+      "derived_from_group": "H3",
+      "goals": [
+        "Find specific content without searching forever",
+        "Navigate app easily without getting lost",
+        "Have simpler, less cluttered interface"
+      ],
+      "pain_points": [
+        "Too much stuff on screen, feels overwhelming",
+        "Can't find content they're looking for",
+        "Search doesn't work well",
+        "Menu and navigation is confusing"
+      ],
+      "context": [
+        "Just wants to quickly find and play content",
+        "Prefers simple design over lots of features"
+      ],
+      "constraints": [
+        "Content should be easy to find",
+        "Navigation shouldn't require many steps"
+      ],
+      "evidence_reviews": [
+        "r0011",
+        "r0025",
+        "r0038"
+      ],
+      "notes": "Combined from old G3 and G4 to match new H3. Removed 'daily commute' assumption,reviews don't mention where they use it. Focused on cluttered UI and navigation problems."
+    },
+    {
+      "id": "P_4",
+      "name": "Casey Rodriguez",
+      "description": "Downloads sleep content or meditations to use offline but they don't work when there's no internet. Downloaded files disappear or won't play, defeating the purpose of downloading.",
+      "derived_from_group": "H4",
+      "goals": [
+        "Use downloaded content without internet",
+        "Have downloads work offline reliably",
+        "Keep downloads after app updates"
+      ],
+      "pain_points": [
+        "Downloaded content won't play offline",
+        "Files keep buffering even when downloaded",
+        "Downloads get deleted randomly",
+        "App still tries to connect to internet even with downloads"
+      ],
+      "context": [
+        "Uses app at night for sleep",
+        "Sometimes in places with bad or no wifi"
+      ],
+      "constraints": [
+        "Downloaded content must work completely offline",
+        "Downloads should persist after updates"
+      ],
+      "evidence_reviews": [
+        "r0003",
+        "r0009",
+        "r0142"
+      ],
+      "notes": "NEW persona for H4 which I created. Auto personas didn't have this because G5 only covered privacy. This is about offline mode problems people mention in reviews."
+    },
+    {
+      "id": "P_5",
+      "name": "Morgan Chen",
+      "description": "Worried about how much data the app collects and what it's used for. Noticed privacy policy mentions sharing data for ads and AI training which seems weird for a meditation app.",
+      "derived_from_group": "H5",
+      "goals": [
+        "Use meditation app without giving up lots of personal data",
+        "Have privacy settings they can control",
+        "Understand what data is being collected and why"
+      ],
+      "pain_points": [
+        "App collects too much personal information",
+        "Data used for targeted ads",
+        "Privacy policy is concerning",
+        "No clear way to opt out of data sharing"
+      ],
+      "context": [
+        "Privacy-conscious user",
+        "Questions why meditation app needs so much data"
+      ],
+      "constraints": [
+        "Should have option to limit data collection",
+        "Data practices should be transparent"
+      ],
+      "evidence_reviews": [
+        "r0005",
+        "r0044",
+        "r0027"
+      ],
+      "notes": "Fixed from another 'Alex Chen'. Removed assumption about commute and being professional. Kept focus on actual privacy concerns people wrote about in reviews."
     }
   ]
 }
