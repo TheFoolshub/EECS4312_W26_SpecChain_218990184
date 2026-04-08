@@ -84,16 +84,16 @@ def run_script(script_path, description):
     print("=" * 70)
 
     if not os.path.exists(script_path):
-        print(f"✗ ERROR: Script not found: {script_path}")
+        print(f" ERROR: Script not found: {script_path}")
         return False
 
     result = subprocess.run([sys.executable, script_path])
 
     if result.returncode == 0:
-        print(f"✓ {description} completed successfully")
+        print(f" {description} completed successfully")
         return True
     else:
-        print(f"✗ {description} failed (exit code {result.returncode})")
+        print(f" {description} failed (exit code {result.returncode})")
         return False
 
 
@@ -118,7 +118,7 @@ def main():
     )
 
     if not results['collect']:
-        print("\n✗ FATAL: Data collection failed")
+        print("\n FATAL: Data collection failed")
         sys.exit(1)
 
     
@@ -133,13 +133,13 @@ def main():
     )
 
     if not results['clean']:
-        print("\n✗ FATAL: Cleaning failed")
+        print("\n FATAL: Cleaning failed")
         sys.exit(1)
 
     clean_data_path = get_data_path("reviews_clean.jsonl")
 
     if not os.path.exists(clean_data_path):
-        print("\n✗ FATAL: Cleaned dataset not found")
+        print("\n FATAL: Cleaned dataset not found")
         sys.exit(1)
 
    
@@ -160,7 +160,7 @@ def main():
         results[key] = success
 
         if not success and key in ["personas", "spec", "tests"]:
-            print(f"\n✗ FATAL: {description} failed → stopping pipeline")
+            print(f"\n FATAL: {description} failed : stopping pipeline")
             sys.exit(1)
 
     
@@ -173,15 +173,15 @@ def main():
 
     for key, value in results.items():
         if value is True:
-            status = "✓ Success"
+            status = " Success"
         elif value is False:
-            status = "✗ Failed"
+            status = " Failed"
         else:
-            status = "⊗ Skipped"
+            status = " Skipped"
 
         print(f"{key.capitalize():<10}: {status}")
 
-    print("\n✓ Pipeline completed successfully!")
+    print("\n Pipeline completed successfully!")
 
 
 if __name__ == "__main__":
