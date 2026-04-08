@@ -2,11 +2,103 @@
   "groups": [
     {
       "group_id": "G1",
-      "theme": "App crashes during activity logging, THIS IS A AN EXAMPLE, PLEASE REMOVE ",
-      "review_ids": ["rev_12", "rev_33", "rev_45", "rev_89"],
+      "theme": "Subscription, Pricing, and Paywall Issues",
+      "review_ids": [
+        "r1687",
+        "r0338",
+        "r0817",
+        "r2244",
+        "r0798",
+        "r0844",
+        "r0956",
+        "r1023",
+        "r1302",
+        "r1336"
+      ],
       "example_reviews": [
-        "The app crashes every time I log my run.",
-        "Logging workouts causes the app to freeze."
+        "cancelled subscription free trial period longer guided meditation video looking found app overwhelming sneakily list two subscription one standard one free trial make difficult ascertain thought cancelled apparently standard still charged full price annual fee refused give refund useless money hungry app terrible customer service",
+        "wanted try app used seven day free trial app thought cancelled subscription seven day trial charged thinking expensive package charged year worth nothing wanted asked refund even opened app used service mad read review say app even work half time want money back"
+      ]
+    },
+    {
+      "group_id": "G2",
+      "theme": "App Performance Issues",
+      "review_ids": [
+        "r0400",
+        "r0553",
+        "r0615",
+        "r0440",
+        "r0511",
+        "r0591",
+        "r0795",
+        "r0006",
+        "r0009",
+        "r0074"
+      ],
+      "example_reviews": [
+        "changing review five star two thousand nineteen every update app gotten worse harder navigate full bug mostly unusable often open crash constantly favourite recent broken excessively long loading screen every click recording stop minute support gave generic ai reply help pushing ai therapy feature frustrating miss simple app actually worked price worth struggle",
+        "used five star latest update noticed getting buggier slow respond slow load occasional crash must restart several time get sleepcast sleep music playing select desired medium load forever even loading animation begin stutter freeze recourse restart perhaps undesired ai ebb using many resource screw ui great crowded confusing"
+      ]
+    },
+    {
+      "group_id": "G3",
+      "theme": "Offline Access and Download Problems",
+      "review_ids": [
+        "r0142",
+        "r1505",
+        "r0009",
+        "r0313",
+        "r0394",
+        "r0448",
+        "r0693",
+        "r0806",
+        "r0849",
+        "r1333"
+      ],
+      "example_reviews": [
+        "content great however apps ability buffer content none existent ended anxiety provoking mediation stopping random point thinking offline even download content still online use downloaded content still try stream way use downloaded content switch airplane mode sadly support really interested",
+        "using headspace several year used really love unfortunately buffering issue ongoing month get stuck buffering meditation nearly every day matter wifi g downloaded meditation offline use whatever cleared cache uninstalled reinstalled app still nothing fix issue eye closed know meditation paused issue make app unusable"
+      ]
+    },
+    {
+      "group_id": "G4",
+      "theme": "UI/UX and Navigation Issues",
+      "review_ids": [
+        "r0793",
+        "r1865",
+        "r2126",
+        "r0011",
+        "r0120",
+        "r0141",
+        "r0209",
+        "r0231",
+        "r0272",
+        "r0505"
+      ],
+      "example_reviews": [
+        "app user interface great recent update used intuitive open main page showing daily activity breathing exercise day daily meditation etc big thumbnail scroll look cluttered side scrolling menu please bring back simple design instinctively stopped using app daily update",
+        "headspace widely acclaimed app designed make meditation mindfulness accessible everyone regardless experience level detailed review app interface usability headspace boast clean user friendly interface make navigation straightforward design visually appealing calming color intuitive icon guide user various section app clear significant thought gone ensuring user e"
+      ]
+    },
+    {
+      "group_id": "G5",
+      "theme": "Positive Experiences and Benefits",
+      "review_ids": [
+        "r1380",
+        "r0848",
+        "r2069",
+        "r0047",
+        "r0363",
+        "r0564",
+        "r0584",
+        "r0670",
+        "r0881",
+        "r1072"
+      ],
+      "example_reviews": [
+        "using headspace two year incredibly helpful tool daily life guided meditation provide much needed sense clarity inner calm session easy use variety program cater different need whether want focus stress sleep mindfulness app truly become essential part routine helping center face day clearer mind highly recommend",
+        "app really helpful easy use design sleek content great help ease stress feel relaxed recommend everyone try wish subscription bit affordable people could benefit mental health truly important"
       ]
     }
-  ]}
+  ]
+}
