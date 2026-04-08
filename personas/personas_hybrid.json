@@ -28,7 +28,7 @@
         "r0007",
         "r0012"
       ],
-      "notes": "Fixed from 'Meditation Enthusiast' which isn't a real name. Focused on crashes and bugs from reviews. Removed unsupported stuff about offline downloads (that's H4)."
+      "notes": "Fixed from 'Meditation Enthusiast' which isn't his name. He is someone who encounters crashes and bugs in the Headspace application. He is an avid user of the meditation application yet encounters these crashes. Removed features about downloading content as that refers to the H4 persona."
     },
     {
       "id": "P_2",
@@ -59,7 +59,7 @@
         "r0014",
         "r0015"
       ],
-      "notes": "Changed from 'Alex Chen college student' , removed college part since reviews don't say that. Kept focus on billing and cancellation issues which are all over these reviews."
+      "notes": "Changed from 'Alex Chen college student' but removed the college portion of his description as it is not mentioned within the reviews. He is someone who encounters issues with the subscription of Headspace. He was charged despite attempting to cancel or during the free trial period."
     },
     {
       "id": "P_3",
@@ -90,7 +90,7 @@
         "r0025",
         "r0038"
       ],
-      "notes": "Combined from old G3 and G4 to match new H3. Removed 'daily commute' assumption,reviews don't mention where they use it. Focused on cluttered UI and navigation problems."
+      "notes": "Combined from old G3 and G4 to match this new H3 group. Removed the detail of commuting to work as that was assumed but not mentioned in the reviews. He finds the application to be too cluttered with features."
     },
     {
       "id": "P_4",
@@ -121,7 +121,7 @@
         "r0009",
         "r0142"
       ],
-      "notes": "NEW persona for H4 which I created. Auto personas didn't have this because G5 only covered privacy. This is about offline mode problems people mention in reviews."
+      "notes": "NEW persona for H4. The automatic personas did not include this group of individuals as G5 did not mention offline features in the reviews. This persona was created based on the concerns mentioned by users in this review group."
     },
     {
       "id": "P_5",
@@ -152,7 +152,7 @@
         "r0044",
         "r0027"
       ],
-      "notes": "Fixed from another 'Alex Chen'. Removed assumption about commute and being professional. Kept focus on actual privacy concerns people wrote about in reviews."
+      "notes": "Fixed from another 'Alex Chen'. Removed mention of commute to work and being professional. Kept focus on actual privacy concerns people wrote about in reviews."
     }
   ]
 }
