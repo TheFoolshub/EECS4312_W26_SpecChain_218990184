@@ -1,3 +1,25 @@
+"""
+05_personas_auto.py - Generate Review Groups & Personas
+
+This script groups user reviews and generates personas using the Groq LLM.
+
+What it does:
+- Reads cleaned reviews from: data/reviews_clean.jsonl
+- Groups reviews into 5 thematic clusters
+- Generates one persona per group
+- Saves outputs to:
+    • data/review_groups_auto.json
+    • personas/personas_auto.json
+
+How to run:
+- Part of full pipeline: python src/run_all.py
+- Or standalone:        python src/05_personas_auto.py
+
+Requirements:
+- Groq API key (env or variable)
+- data/reviews_clean.jsonl must exist (from 02_clean.py)
+"""
+
 import json
 import re
 from groq import Groq
