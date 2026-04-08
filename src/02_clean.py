@@ -1,4 +1,30 @@
 ## 02_clean.py - cleaning the raw reviews
+"""
+02_clean.py - Clean and Preprocess Reviews
+
+This script cleans raw user reviews for use in all pipelines.
+
+What it does:
+- Reads raw reviews from: data/reviews_raw.jsonl
+- Removes duplicates and empty reviews
+- Normalizes text (lowercase, remove emojis, punctuation, special characters)
+- Converts numbers to words
+- Removes stopwords and applies lemmatization (NLTK)
+- Drops reviews with fewer than 15 words
+- Assigns unique review IDs
+- Saves cleaned data to: data/reviews_clean.jsonl
+- Generates metadata in: data/dataset_metadata.json
+
+How to run:
+- Part of full pipeline: python src/run_all.py
+- Or standalone:        python src/02_clean.py
+
+Requirements:
+- data/reviews_raw.jsonl must exist (from 01_collect_or_import.py)
+- NLTK (stopwords, wordnet)
+- num2words library
+"""
+
 
 import json, os, re, unicodedata
 import nltk
