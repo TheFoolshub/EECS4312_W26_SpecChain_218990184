@@ -1,3 +1,24 @@
+"""
+06_spec_generate.py - Generate Requirements Specification
+
+This script generates structured system requirements from personas
+using the Groq LLM.
+
+What it does:
+- Reads personas from: personas/personas_auto.json
+- Generates ≥10 clear, testable requirements (R1, R2, ...)
+- Ensures traceability to personas and review groups
+- Saves output to: spec/spec_auto.md
+
+How to run:
+- Part of full pipeline: python src/run_all.py
+- Or standalone:        python src/06_spec_generate.py
+
+Requirements:
+- Groq API key (env or variable)
+- personas/personas_auto.json must exist (from 05_personas_auto.py)
+"""
+
 import json
 import os
 import re
@@ -20,7 +41,7 @@ def generate_requirements(personas):
 
 Generate structured, testable system requirements for the Headspace app based on these personas.
 
-IMPORTANT RULES: for groq
+IMPORTANT RULES:
 - Generate AT LEAST 10 requirements 
 - Each requirement must be CLEAR, SPECIFIC, and TESTABLE
 - DO NOT use vague words like: "easy", "fast", "better", "user-friendly", "intuitive"
