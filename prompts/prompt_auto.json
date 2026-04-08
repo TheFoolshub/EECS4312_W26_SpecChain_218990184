@@ -1,96 +1,129 @@
 
-{
-  "test_generation": {
-    "task": "Validation test generation from requirements",
-    "model": "meta-llama/llama-4-scout-17b-16e-instruct",
-    "temperature": 0.2,
-    "max_tokens": 4000,
-    "min_tests_per_requirement": 2,
-    "total_requirements": 10,
-    "output_format": "JSON test scenarios"
-  }
-}
+# TEST GENERATION METADATA
+# ========================================
+# {
+#   "test_generation": {
+#     "task": "Validation test generation from requirements",
+#     "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+#     "temperature": 0.2,
+#     "max_tokens": 4000,
+#     "min_tests_per_requirement": 2,
+#     "total_requirements": 10,
+#     "output_format": "JSON test scenarios"
+#   }
+# }
 
-"prompt": "Please generate a complete script that uses the Groq API to group user reviews into meaningful categories.
 
-Here’s what the script should do:
 
-Be saved as src/05_personas_auto.py Load reviews from data/reviews_clean.jsonl Each review has review_id and clean_content Only use the first 100 reviews to avoid token limits
+# PROMPT 1 – GROUPING REVIEWS (4.1)
+# ========================================
+# Please generate a complete script that uses the Groq API to group user reviews into meaningful categories.
+#
+# Here’s what the script should do:
+# - Be saved as src/05_personas_auto.py
+# - Load reviews from data/reviews_clean.jsonl
+# - Each review has review_id and clean_content
+# - Only use the first 100 reviews to avoid token limits
+#
+# Use the Groq API only (no gensim, sklearn, LDA, or embeddings), and use this model:
+# meta-llama/llama-4-scout-17b-16e-instruct
+#
+# The script should send the reviews to the model and ask it to group them into exactly 5 categories based on meaning.
+#
+# Each group should include:
+# - group_id (G1–G5)
+# - theme (short name)
+# - description (1–2 sentences)
+# - review_ids (list of review IDs)
+#
+# Also make sure:
+# - Each review appears in only one group
+# - Duplicate review IDs are removed
+# - Any ```json formatting in the response is cleaned
+# - group_id values are properly formatted as G1–G5
+#
+# The final results should be saved to:
+# data/review_groups_auto.json
+#
+# Make sure the output is valid JSON.
+#
+# Code should be clean, readable, and include comments and basic error handling.
+#
+# Inside the script, the prompt sent to the model should clearly ask for meaningful themes
+# (similar to common app review categories) and avoid empty groups.
+#
+# Finally:
+# - Return ONLY the Python script
+# - No explanations
+# - No markdown
 
-Use the Groq API only (no gensim, sklearn, LDA, or embeddings), and use this model: meta-llama/llama-4-scout-17b-16e-instruct
 
-The script should send the reviews to the model and ask it to group them into exactly 5 categories based on meaning.
 
-Each group should include:
+# PROMPT 2 – PERSONA GENERATION (4.2)
+# ========================================
+# In the previous step, I created a script that groups reviews and saves the result to:
+# data/review_groups_auto.json
+#
+# Now I need a new continuation of that Python script that builds on that output.
+#
+# Task:
+# Generate a complete Python script that loads the grouped reviews from
+# data/review_groups_auto.json and automatically creates 5 personas (one per group)
+# using the Groq API.
+#
+# Requirements:
+# - Script must be saved as: src/06_personas_auto.py
+# - Load data from: data/review_groups_auto.json
+#
+# Each group contains:
+# - group_id
+# - theme
+# - description
+# - review_ids
+#
+# The script should:
+# - Loop through each group
+# - Send each group to the Groq model
+# - Generate ONE persona per group
+#
+# Use ONLY the Groq API (no sklearn, gensim, etc.)
+# Model: meta-llama/llama-4-scout-17b-16e-instruct
+#
+# The script must:
+# - Clean model output (remove ```json)
+# - Ensure valid JSON parsing
+# - Handle errors gracefully
+# - Include comments
+# - Be clean and readable
+#
+# Output:
+# Save personas to:
+# personas/personas_auto.json
+#
+# Format:
+# { "personas": [ ... ] }
+#
+# Important:
+# - Personas must reflect group themes
+# - No generic personas
+# - Maintain traceability using group_id
+# - One persona per group (total = 5)
+#
+# Final instruction:
+# - Return ONLY the Python script
+# - No explanations
+# - No markdown
 
-group_id (G1–G5) theme (short name) description (1–2 sentences) review_ids (list of review IDs)
 
-Also make sure:
 
-Each review appears in only one group Duplicate review IDs are removed Any ```json formatting in the response is cleaned group_id values are properly formatted as G1–G5
-
-The final results should be saved to: data/review_groups_auto.json
-
-Make sure the output is valid JSON.
-
-Code should be clean, readable, and include comments and basic error handling.
-
-Inside the script, the prompt sent to the model should clearly ask for meaningful themes (similar to common app review categories) and avoid empty groups.
-
-Finally, just return the Python script — no explanations or markdown."
-}
-
-"prompt 2"; "In the previous step, I created a script that groups reviews and saves the result to: data/review_groups_auto.json
-
-Now I need a new continuation of that Python script that builds on that output.
-
-Task: Generate a complete Python script that loads the grouped reviews from data/review_groups_auto.json and automatically creates 5 personas (one per group) using the Groq API.
-
-Requirements:
-
-The script must be saved as: src/06_personas_auto.py
-It must load data from: data/review_groups_auto.json
-Each group contains:
-group_id
-theme
-description
-review_ids
-The script should:
-
-Loop through each group
-Send each group to the Groq model
-Generate ONE persona per group based on the reviews in that group
-Use ONLY the Groq API (no other libraries like sklearn, gensim, etc.)
-
-Use this model: meta-llama/llama-4-scout-17b-16e-instruct
-
-The script must:
-
-Clean the model output (remove ```json if present)
-Ensure valid JSON parsing
-Handle errors gracefully
-Include comments explaining each step
-Keep code clean and readable
-Output:
-
-Save all personas to: personas/personas_auto.json
-
-Format must be: { "personas": [ ... ] }
-
-Important:
-
-Personas must clearly reflect the themes of their corresponding review group
-Do not generate generic personas — base them on the group content
-Maintain traceability by including group_id
-One persona per group (total = 5)
-Final instruction: Return ONLY the Python script. Do NOT include explanations. Do NOT include markdown."
-
-"prompt 3 : Generate structured, testable system requirements for the Headspace app based on these personas.
-
-IMPORTANT RULES: for  groq 
-- Generate AT LEAST 10 requirements 
-- Each requirement must be CLEAR, SPECIFIC, and TESTABLE
-- DO NOT use vague words like: easy, fast, better, user-friendly, intuitive
-- Use measurable terms instead (e.g., within 3 seconds, at least 10 items, 90% accuracy)
-- Each requirement must describe actual system behavior
-- Each requirement must trace back to a persona and review group "
+# PROMPT 3 – REQUIREMENTS GENERATION (4.3)
+# ========================================
+# Generate structured, testable system requirements for the Headspace app based on these personas.
+#
+# IMPORTANT RULES:
+# - Generate AT LEAST 10 requirements
+# - Each requirement must be CLEAR, SPECIFIC, and TESTABLE
+# - DO NOT use vague words like: easy, fast, better, user-friendly, intuitive
+# - Use measurable terms (e.g., within 3 seconds, at least 10 items, 90% accuracy)
+# - Each requirement must describe actual system behavior
+# - Each requirement must trace back to a persona and review group
