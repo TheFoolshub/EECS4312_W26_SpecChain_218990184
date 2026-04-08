@@ -1,3 +1,26 @@
+"""
+07_tests_generate.py - Generate Validation Tests
+
+This script generates validation test cases from the requirements
+specification using the Groq LLM.
+
+What it does:
+- Reads requirements from: spec/spec_auto.md
+- Extracts requirement IDs (R1, R2, ...)
+- Generates ≥2 test cases per requirement using LLM
+- Saves output to: tests/tests_auto.json
+- Stores prompt metadata in: prompts/prompt_auto.json
+
+How to run:
+- Part of full pipeline: python src/run_all.py
+- Or standalone:        python src/07_tests_generate.py
+
+Requirements:
+- Groq API key (env or variable)
+- spec/spec_auto.md must exist (from 06_spec_generate.py)
+"""
+
+
 import json
 import os
 import re
@@ -106,13 +129,13 @@ def update_prompts(metadata: Dict) -> None:
     
     prompts = {}
 
-    #  handle corrupted JSON safely
+    # ✅ FIXED: handle corrupted JSON safely
     if os.path.exists(filepath):
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 prompts = json.load(f)
         except:
-            print("prompt_auto.json corrupted — resetting file")
+            print("⚠️ prompt_auto.json corrupted — resetting file")
             prompts = {}
 
     prompts["test_generation"] = metadata
@@ -128,11 +151,11 @@ def main():
     
     print("Step 1: Loading requirements specification...")
     spec_content = generator.load_specification("spec/spec_auto.md")
-    print(" Specification loaded\n")
+    print("  ✓ Specification loaded\n")
     
     print("Step 2: Extracting requirement IDs...")
     req_ids = generator.extract_requirement_ids(spec_content)
-    print(f"  Found {len(req_ids)} requirements: {req_ids}\n")
+    print(f"  ✓ Found {len(req_ids)} requirements: {req_ids}\n")
     
     print(f"Step 3: Generating validation tests ({MIN_TESTS_PER_REQ}+ per requirement)...")
     tests = generator.generate_tests(spec_content, req_ids)
