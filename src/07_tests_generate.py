@@ -29,7 +29,7 @@ from groq import Groq
 
 
 # Configuration
-API_KEY = "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"
+API_KEY = "add api key here "
 MODEL_NAME = "meta-llama/llama-4-scout-17b-16e-instruct"
 MIN_TESTS_PER_REQ = 2
 
