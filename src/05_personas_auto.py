@@ -24,7 +24,7 @@ import json
 import re
 from groq import Groq
 
-client = Groq(api_key="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")
+client = Groq(api_key="add API key here ")
 
 
 def load_clean_reviews(path):
