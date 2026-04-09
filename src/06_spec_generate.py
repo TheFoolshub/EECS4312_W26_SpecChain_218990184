@@ -28,7 +28,7 @@ from groq import Groq
 
 # CONFIGURATION
 
-API_KEY = "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"  
+API_KEY = "add api key here "  
 
 client = Groq(api_key=API_KEY)
 
